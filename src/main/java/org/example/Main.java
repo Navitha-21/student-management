@@ -1,17 +1,33 @@
 package org.example;
 
+import org.example.model.Student;
+import org.example.service.StudentService;
+import org.example.service.StudentServiceImpl;
+import org.example.util.dbConnection;
+
+import java.sql.SQLException;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+    public static void main(String[] args) throws SQLException {
+
+        dbConnection.getConnection();
+        System.out.println("connection Success");
+
+        Student student=new Student();
+        student.setId(67);
+        student.setName("Navitha");
+        student.setEmail("navitha21@gmail.com");
+        student.setPhone(799306690);
+        student.setCourse("Java Full Stack");
+
+        StudentService studentService = new StudentServiceImpl();
+        studentService.createStudent(student);
+        studentService.updateStudent(67, "adhoni04@gmail.com");
+        studentService.deleteStudent(68);
+        studentService.getAllStudent();
+
     }
 }
