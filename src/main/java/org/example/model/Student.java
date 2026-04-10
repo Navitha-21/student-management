@@ -1,5 +1,7 @@
 package org.example.model;
 
+import java.sql.Connection;
+
 public class Student {
     private int id;
     private String name;
@@ -40,5 +42,6 @@ public class Student {
     public void setCourse(String course){
         this.course=course;
     }
+
 
 }

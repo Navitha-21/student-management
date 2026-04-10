@@ -16,18 +16,9 @@ public class Main {
         dbConnection.getConnection();
         System.out.println("connection Success");
 
-        Student student=new Student();
-        student.setId(67);
-        student.setName("Navitha");
-        student.setEmail("navitha21@gmail.com");
-        student.setPhone(799306690);
-        student.setCourse("Java Full Stack");
 
-        StudentService studentService = new StudentServiceImpl();
-        studentService.createStudent(student);
-        studentService.updateStudent(67, "adhoni04@gmail.com");
-        studentService.deleteStudent(68);
-        studentService.getAllStudent();
+
+
 
     }
 }

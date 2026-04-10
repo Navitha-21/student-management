@@ -1,5 +1,6 @@
 package org.example.dao;
 import org.example.model.Student;
+import org.example.util.dbConnection;
 
 import java.sql.*;
 
@@ -9,10 +10,10 @@ public class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public void createStudent(final Student student) throws SQLException{
+    public void addStudent(final Student student) throws SQLException{
         try{
                 String sql = "insert into student(id, name, email, phone, course) values(?, ?, ?, ?, ?)";
-                Connection connection = getConnection();
+                Connection connection = dbConnection.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, student.getId());
                 preparedStatement.setString(2, student.getName());
@@ -26,10 +27,12 @@ public class StudentDAOImpl implements StudentDAO {
             }
         }
 
+
+
     @Override
-        public void updateStudent(int id, String email) throws SQLException {
+        public void updateStudent(int id, String email, String phone) throws SQLException {
             String sql = "update student set email = ? where stud_id= ?";
-            Connection connection = getConnection();
+            Connection connection = dbConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, email);
             preparedStatement.setInt(2, id);
@@ -40,8 +43,8 @@ public class StudentDAOImpl implements StudentDAO {
 
         @Override
         public void deleteStudent(int id) throws SQLException {
-            String sql = "delete from employee where stud_id = ?";
-            Connection connection = getConnection();
+            String sql = "delete from student where stud_id = ?";
+            Connection connection = dbConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             int deletedRowCount = preparedStatement.executeUpdate();
@@ -49,8 +52,8 @@ public class StudentDAOImpl implements StudentDAO {
         }
         @Override
         public void getAllStudent() throws SQLException {
-            String sql = "select * from employee";
-            Connection connection = getConnection();
+            String sql = "select * from student";
+            Connection connection = dbConnection.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             System.out.println("Employee List:  ");

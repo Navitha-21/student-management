@@ -9,16 +9,16 @@ import java.sql.SQLException;
 public class StudentServiceImpl implements StudentService{
 
     @Override
-    public void createStudent(final Student student) throws SQLException {
+    public void addStudent(final Student student) throws SQLException {
         StudentDAO studentDAO = new StudentDAOImpl();
-        studentDAO.createStudent(student);
+        studentDAO.addStudent(student);
 
     }
 
     @Override
-    public void updateStudent(int id, String email) throws SQLException {
+    public void updateStudent(int id, String email, String phone) throws SQLException {
         StudentDAO studentDAO=new StudentDAOImpl();
-        studentDAO.updateStudent(id, email);
+        studentDAO.updateStudent(id, email, phone);
     }
 
     @Override
