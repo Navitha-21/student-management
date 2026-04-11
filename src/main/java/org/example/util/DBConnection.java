@@ -3,8 +3,9 @@ package org.example.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.example.util.DBConnection;
 
-public class dbConnection {
+public class DBConnection {
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres_db" ;
     private static final String USER ="postgres";
     private static final String PASSWORD ="Navitha@21";

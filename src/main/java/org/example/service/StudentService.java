@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.model.Student;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface StudentService {
     void addStudent(Student student) throws SQLException;
@@ -11,5 +12,5 @@ public interface StudentService {
 
     void deleteStudent(int id) throws SQLException;
 
-    void getAllStudent() throws SQLException;
+    List<Student> getAllStudents() throws SQLException;
 }

@@ -5,6 +5,7 @@ import org.example.dao.StudentDAOImpl;
 import org.example.model.Student;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class StudentServiceImpl implements StudentService{
 
@@ -28,9 +29,10 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public void getAllStudent() throws SQLException {
+    public List<Student> getAllStudents() throws SQLException{
         StudentDAO studentDAO=new StudentDAOImpl();
-        studentDAO.getAllStudent();
+        return studentDAO.getAllStudents();
     }
+
 
 }
